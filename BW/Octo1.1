@@ -21,7 +21,9 @@ dir_pin: PF12
 enable_pin: !PF14
 microsteps: 16
 rotation_distance: 40
-endstop_pin: PG6
+#endstop_pin: PG6
+endstop_pin: tmc2209_stepper_x:virtual_endstop
+homing_retract_dist: 0
 position_endstop: 0
 position_max: 400
 homing_speed: 50 #150
@@ -33,7 +35,9 @@ dir_pin: PG1
 enable_pin: !PF15
 microsteps: 16
 rotation_distance: 40
-endstop_pin: PG9
+#endstop_pin: PG9
+endstop_pin: tmc2209_stepper_x:virtual_endstop
+homing_retract_dist: 0
 position_endstop: 0
 position_max: 250
 homing_speed: 50 #150
@@ -45,7 +49,8 @@ dir_pin: PG3
 enable_pin: !PG5
 microsteps: 16
 rotation_distance: 2
-endstop_pin: PG10
+#endstop_pin: PG10
+endstop_pin: probe:z_virtual_endstop
 position_endstop: 0.5
 position_max: 300
 
@@ -162,13 +167,13 @@ max_z_accel: 100
 
 [tmc2209 stepper_x]
 uart_pin: PC4
-#diag_pin: PG6  ADD JUMPER AND REMOVE COMMENT
+diag_pin: PG6  #ADD JUMPER AND REMOVE COMMENT
 run_current: 0.800
 stealthchop_threshold: 999999
 
 [tmc2209 stepper_y]
 uart_pin: PD11
-#diag_pin: PG9 ADD JUMPER AND REMOVE COMMENT
+diag_pin: PG9 #ADD JUMPER AND REMOVE COMMENT
 run_current: 0.800
 stealthchop_threshold: 999999
 
@@ -295,6 +300,9 @@ pin: EXP1_1
 sensor_pin: PB7
 control_pin: PB6
 z_offset: 0
+pin_move_time: 0.200
+x_offset: 65
+y_offset: 10
+speed: 5
+#z_offset:3.350
 
-#[neopixel my_neopixel]
-#pin: PB0
